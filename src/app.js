@@ -3,9 +3,10 @@ const path = require('path');
 const express = require('express');
 const hbs = require('hbs')
 
-
-
 const app = express();
+const port = process.env.PORT || 4000;
+
+
 const publicDirPath = path.join(__dirname, '..', '/public');
 const viewsPath = path.join(__dirname, '..', '/templates/views');
 const partialsPath = path.join(__dirname, '..', '/templates/partials');
@@ -85,6 +86,6 @@ app.get('*', (req, res) => {
         name: 'Ankit Francis'
     });
 });
-app.listen(4000, () => {
-    console.log('server is up!');
+app.listen(port, () => {
+    console.log('server is up! @'+port);
 });
