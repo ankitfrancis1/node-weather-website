@@ -8,8 +8,14 @@ const forecast = (lat, long, callback) => {
         } else if (response.body.error) {
             callback('Error:'+response.body.error.info,undefined)
         } else {
+            let W = response.body.current; 
+            let L = response.body.location;
+            const forecast = `It is ${W.temperature} degrees Celsius out, weather is ${W.weather_descriptions[0]}`;
+            const weather_detail = `(measured at ${L.localtime} ${L.timezone_id} timezone); humidity=${W.humidity}, precipitation = ${W.precip}, uv index =${W.uv_index},\n winds=${W.wind_speed} knots (${W.wind_dir})\n, pressure = ${W.pressure} bar`;
             callback(undefined,{
-                forecast : response.body.current.weather_descriptions[0] + ", temp="+ response.body.current.temperature,
+                forecast : forecast,
+                weather_detail: weather_detail,
+                weather_icon: W.weather_icons[0]
             })
         }
     });

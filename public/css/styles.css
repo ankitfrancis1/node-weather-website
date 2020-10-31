@@ -53,3 +53,16 @@ button {
     padding: 8px;
 
 }
+.flex-container{
+    display: flex;
+    flex-direction: row;
+}
+#weather-img {
+    width: 100px;
+    margin-top: 20px;
+    margin-right :10px;
+}
+#message-0 {
+    font-size: 20px;
+    font-family: sans-serif;
+}
